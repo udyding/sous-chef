@@ -36,12 +36,12 @@ async function getSteps(id) {
         let itemsSteps = info[0].steps;
         let listOfSteps = [];
         let listOfNumbers = [];
-        itemsSteps.forEach(step => {
-            listOfNumbers.push(number.step);
-            listOfSteps.push(step.step);
-        })
+        for (let step in itemsSteps) {
+            pair = [itemsSteps[step].number, itemsSteps[step].step];
+            listOfSteps.push(pair)
+        }
        
-        return listOfSteps;
+        return [listOfSteps];
     } catch (err) {
         console.log(err.response);
     }
