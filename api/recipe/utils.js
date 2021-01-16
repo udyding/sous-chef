@@ -41,7 +41,7 @@ async function getSteps(id) {
             listOfSteps.push(pair)
         }
        
-        return [listOfSteps];
+        return listOfSteps;
     } catch (err) {
         console.log(err.response);
     }
