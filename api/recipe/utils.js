@@ -18,7 +18,7 @@ async function getRecipeInfo(id/*, name, image, imageType*/) {
         for (let ingredientInfo in ingredientsInfo) {
             ingredients.push(ingredientsInfo[ingredientInfo].name)
         }
-        return prepTime, cookingTime, title, ingredients;
+        return [prepTime, cookingTime, title, ingredients];
     } catch (err) {
         console.log(err.response);
     } 
@@ -33,19 +33,15 @@ async function getSteps(id) {
         })
         let info = response.data;
         // there may be multiple things being made, each with their own steps
-        let itemsSteps = [];
-        for (let food in info) {
-            let stepsInfo = info[food].steps;
-            let steps = [];
-            for (let value in stepsInfo) {
-                let stepInfo = { 
-                    numberStep: stepsInfo[value].number,
-                    step: stepsInfo[value].step
-                }
-                steps.push(stepInfo);
-            }
-            itemsSteps.push(steps);
-        }
+        let itemsSteps = info[0].steps;
+        let listOfSteps = [];
+        let listOfNumbers = [];
+        itemsSteps.forEach(step => {
+            listOfNumbers.push(number.step);
+            listOfSteps.push(step.step);
+        })
+       
+        return listOfSteps;
     } catch (err) {
         console.log(err.response);
     }
