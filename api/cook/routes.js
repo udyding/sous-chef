@@ -12,8 +12,7 @@ router.get('/:recipeId', async (req, res) => {
     try {
         const { recipeId } = req.params;
         const steps = await getSteps(recipeId);
-        console.log(steps)
-        //res.render('cooking', { steps: steps });
+        res.render('cooking', { steps: steps });
     } catch (err) {
         res.status(400).send(err);
     }
