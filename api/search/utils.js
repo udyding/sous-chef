@@ -9,6 +9,7 @@ async function getSearchResults(query) {
             url: `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${query}`
         })
         let searchResults = response.data.results;
+        console.log(searchResults)
         return searchResults;
     } catch (err) {
         console.log(err.response);

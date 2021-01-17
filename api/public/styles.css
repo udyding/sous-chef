@@ -16,16 +16,11 @@ body {
 }
 
 .container {
-  margin: 100px;
+  margin: 80px;
 }
 
 ::placeholder {
   color: grey;
-}
-
-input {
-  height: 50px;
-  font-size: 45px;
 }
 
 button {
@@ -41,4 +36,47 @@ input {
   border-bottom: 2px solid #fdd451;
   box-shadow: none;
   color: white;
+  height: 50px;
+  font-size: 45px;
+}
+
+.results {
+  /* padding: 10px; */
+  margin-top: 50px;
+  margin-left: 16px;
+  font-size: 45px;
+}
+
+.food-image {
+  box-shadow: 10px 10px 5px #212121;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.recipe-title {
+  color: white;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+  margin-left: 5px;
+  width: 100%;
+  /* padding: 10px; */
+}
+
+.row {
+  margin-top: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+.btn {
+  background-color: #fdd451;
+  color: black;
+}
+
+.container-2 {
+  margin: 100px;
 }

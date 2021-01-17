@@ -1,5 +1,5 @@
 const axios = require('axios');
-const app = require('../../speech/web_microphone_websocket/server');
+// const app = require('../../speech/web_microphone_websocket/server');
 const { API_KEY } = require('../config');
 
 /*

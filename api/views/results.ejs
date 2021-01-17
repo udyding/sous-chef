@@ -1,14 +1,51 @@
-<%-include('./partial/header')-%>    
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<h1>These are your results</h1>
-
-<div class="row">
-    <%for (let i = 0; i < searchResults.length; i++) { %>
-        <div style="background-color: white; width:286px; height: 180px;">
-            <a href="/recipe/"+<%= searchResults[i].id %>>
-                <%= searchResults[i].title %>
-            </a>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title>SousChef</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">SousChef</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          </ul>
         </div>
-        <% } %>            
-</div>
-<%-include('./partial/footer')-%> 
+    </nav>
+    <div class="container-2">
+        <h1 class="results">Here are your results:</h1>
+        <div class="row">
+            <%for (let i = 0; i < searchResults.length; i++) { %>
+                <div class="col-md-3">
+                    <img class="food-image" src=<%= searchResults[i].image %>>
+                    <div class="recipe-title">
+                            <a class="recipe" style="color: white" href=<%= "/recipe/" + searchResults[i].id %>>
+                            <%= searchResults[i].title %>
+                        </a>
+                    </div>
+                    
+                </div>
+                <% } %>            
+        </div>
+    </div>
+    
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

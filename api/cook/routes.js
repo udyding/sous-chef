@@ -11,8 +11,8 @@ app.set('view engine', 'ejs')
 router.get('/:recipeId', async (req, res) => {
     try {
         const { recipeId } = req.params;
-        const steps = await getSteps(recipeId);
-        res.render('cooking', { steps: steps });
+        const recipeSteps = await getSteps(recipeId);
+        res.render('cooking', { steps: recipeSteps });
     } catch (err) {
         res.status(400).send(err);
     }
