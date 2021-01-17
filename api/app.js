@@ -7,9 +7,10 @@ const recipe = require('./recipe/routes')
 const search = require('./search/routes')
 const cook = require('./cook/routes')
 
+const path = require('path')
 
 app.set('view engine', 'ejs')
-
+app.use(express.static('public'))
 
 //app.use(bodyParser.json());
 
@@ -27,4 +28,6 @@ app.use('/cook', cook)
 
 app.listen(PORT, () => {
     console.log('Listening on http://localhost:' + PORT);
+
+    
 });
