@@ -1,0 +1,14 @@
+<%-include('./partial/header')-%>    
+
+<h1></h1>
+
+<div class="row">
+    <%for (let i = 0; i < searchResults.length; i++) { %>
+        <div style="background-color: white; width:286px; height: 180px;">
+            <a href="/recipe/"+<%= searchResults[i].id %>>
+                <%= searchResults[i].title %>
+            </a>
+        </div>
+        <% } %>            
+</div>
+<%-include('./partial/footer')-%> 
