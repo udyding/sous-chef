@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const PORT = 5000;
 const recipe = require('./recipe/routes')
-const recipes = require('./recipes/routes')
+const search = require('./search/routes')
 
 
 app.set('view engine', 'ejs')
@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
     res.render('home');
 })
 
-app.use('/recipes', recipes)
+app.use('/search', search)
 
 app.use('/recipe', recipe)
 
