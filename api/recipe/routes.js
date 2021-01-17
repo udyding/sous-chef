@@ -5,8 +5,8 @@ const { getRecipeInfo, getSteps } = require('./utils');
 
 router.get('/:recipeId', async (req, res) => {
     try {
-        const { id } = req.query;
-        const results = await getSteps(id);
+        const { recipeId } = req.query;
+        const results = await getSteps(recipeId);
         res.status(200).send(results);
     } catch (err) {
         res.status(400).send(err);
