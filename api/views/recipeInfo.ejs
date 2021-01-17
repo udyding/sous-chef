@@ -2,13 +2,21 @@
 
 <h1></h1>
 
-<div class="row">
-    <%for (let i = 0; i < searchResults.length; i++) { %>
-        <div style="background-color: white; width:286px; height: 180px;">
-            <a href="/recipe/"+<%= searchResults[i].id %>>
-                <%= searchResults[i].title %>
-            </a>
-        </div>
-        <% } %>            
+<div>
+    <p><%= recipeInfo[1] %></p>   
+    <br>
+    <img src=<%= recipeInfo[2] %>>
+    <br>
+    <p>Cooking Time: <%= recipeInfo[3] %>      Servings: <%= recipeInfo[4] %></p>
+    <br>
+    <ul>
+        <% for (let i = 0; i < recipeInfo[5].length; i++) { %> 
+            <li><%= (recipeInfo[5])[i] %> </li>
+            <br>
+            <% } %> 
+    </ul>
+    <a class='btn' href="/cook/"+<%= recipeInfo[0] %>>
+        Start Cooking!
+    </a>
 </div>
 <%-include('./partial/footer')-%> 

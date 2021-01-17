@@ -10,15 +10,17 @@ async function getRecipeInfo(id/*, name, image, imageType*/) {
             url: `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
         })
         let info = response.data;
-        let prepTime = info.preparationMinutes;
-        let cookingTime = info.cookingMinutes;
+        //let prepTime = info.preparationMinutes; MAY NOT BE AVAILABLE FOR ALL RECIPES
+        let cookingTime = info.readyInMinutes;
+        let image = info.image;
         let title = info.title;
+        let servings = info.servings;
         let ingredientsInfo = info.extendedIngredients;
         let ingredients = [];
         for (let ingredientInfo in ingredientsInfo) {
-            ingredients.push(ingredientsInfo[ingredientInfo].name)
+            ingredients.push(ingredientsInfo[ingredientInfo].originalString)
         }
-        return [prepTime, cookingTime, title, ingredients];
+        return [id, title, image, cookingTime, servings, ingredients]
     } catch (err) {
         console.log(err.response);
     } 
@@ -33,15 +35,22 @@ async function getSteps(id) {
         })
         let info = response.data;
         // there may be multiple things being made, each with their own steps
-        let itemsSteps = info[0].steps;
-        let listOfSteps = [];
-        let listOfNumbers = [];
-        for (let step in itemsSteps) {
-            pair = [itemsSteps[step].number, itemsSteps[step].step];
-            listOfSteps.push(pair)
+        let allItemsSteps = [];
+        for (let item in info) {
+            let itemSteps = item.steps
+            let itemName = item.name;
+            for (let step in itemsSteps) {
+                //let pair = [itemsSteps[step].number, itemsSteps[step].step];
+                //itemSteps.push(pair)
+                itemSteps.push(itemsSteps[step].number + itemSteps[step].step)
+            }
+            if (itemName = '') {
+                allItemsSteps.push('Main recipe', itemSteps);
+            } else {
+                allItemsSteps.push(itemName, itemSteps);
+            }
         }
-       
-        return listOfSteps;
+        return allItemsSteps;
     } catch (err) {
         console.log(err.response);
     }
