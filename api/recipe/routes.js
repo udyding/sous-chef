@@ -3,7 +3,7 @@ const app = express();
 const path = require('path')
 const router = express.Router();
 
-const { getRecipeInfo, getSteps } = require('./utils');
+const { getRecipeInfo } = require('./utils');
 
 app.set('views', path.join(__dirname, '../views'))
 app.set('view engine', 'ejs')

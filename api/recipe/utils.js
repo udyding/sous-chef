@@ -26,37 +26,7 @@ async function getRecipeInfo(id/*, name, image, imageType*/) {
     } 
 }
 
-// gets the steps only from a recipe
-async function getSteps(id) {
-    try {
-        const response = await axios({
-            method: 'get',
-            url: `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${API_KEY}`
-        })
-        let info = response.data;
-        // there may be multiple things being made, each with their own steps
-        let allItemsSteps = [];
-        for (let item in info) {
-            let itemSteps = item.steps
-            let itemName = item.name;
-            for (let step in itemsSteps) {
-                //let pair = [itemsSteps[step].number, itemsSteps[step].step];
-                //itemSteps.push(pair)
-                itemSteps.push(itemsSteps[step].number + itemSteps[step].step)
-            }
-            if (itemName = '') {
-                allItemsSteps.push('Main recipe', itemSteps);
-            } else {
-                allItemsSteps.push(itemName, itemSteps);
-            }
-        }
-        return allItemsSteps;
-    } catch (err) {
-        console.log(err.response);
-    }
-}
 
 module.exports = {
     getRecipeInfo,
-    getSteps
 }
