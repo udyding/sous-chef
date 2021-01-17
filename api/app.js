@@ -7,6 +7,7 @@ const recipe = require('./recipe/routes')
 const search = require('./search/routes')
 const cook = require('./cook/routes')
 
+app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'ejs')
 
