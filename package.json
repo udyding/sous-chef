@@ -2,9 +2,10 @@
   "name": "sous-chef",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "postinstall": "npm install --prefix api"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,6 @@
     "deepspeech": "^0.9.3",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "socket.io": "^3.1.0"
+    "express": "^4.17.1"
   }
 }
