@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -26,7 +27,7 @@ app.use('/recipe', recipe)
 
 app.use('/cook', cook)
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log('Listening on http://localhost:' + PORT);
 
     
