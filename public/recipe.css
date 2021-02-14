@@ -1,28 +1,29 @@
 body {
   margin: 0;
-  font-family: "Balsamiq Sans", cursive;
-  height: 400%;
+  font-family: "Varela Round", sans-serif;
+  min-height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.719)),
     url("./images/food.jpeg");
 }
 
 .slideshow-container {
-  position: static;
-  height: 300%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .mySlides {
   display: none;
-  padding: 80px;
   text-align: center;
+  line-height: 5px;
   position: static;
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+.prev {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: 50%;
   width: auto;
   margin-top: -30px;
@@ -31,7 +32,19 @@ body {
   font-weight: bold;
   font-size: 20px;
   border-radius: 0 3px 3px 0;
-  user-select: none;
+}
+
+.next {
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  background-color: #fdd451;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
 }
 
 /* Position the "next button" to the right */
@@ -49,10 +62,12 @@ body {
 
 /* The dot/bullet/indicator container */
 .dot-container {
-  text-align: center;
+  left: 50%;
   padding: 20px;
   background: transparent;
   bottom: 10px;
+  transform: translate(-50%);
+  position: fixed;
 }
 
 /* The dots/bullets/indicators */
@@ -77,6 +92,16 @@ p {
   font-size: 50px;
   color: white;
   line-height: 50px;
+}
+
+.instructions {
+  position: fixed;
+  font-size: 20px;
+  color: #efd0d2;
+  bottom: 75px;
+  left: 50%;
+  transform: translate(-50%);
+  margin: auto;
 }
 
 .navbar {

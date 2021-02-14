@@ -6,7 +6,8 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/recipe.css">
         <title>SousChef</title>
     </head>
@@ -31,15 +32,19 @@
                 </div>
                 <% } %>
             </div>
-            <a class="prev" id="previous" onclick="plusSlides(-1)">❮</a>
-            <a class="next" id="next" onclick="plusSlides(1)">❯</a>
-
         </div>
+
+        <a class="prev" id="previous" onclick="plusSlides(-1)">❮</a>
+        <a class="next" id="next" onclick="plusSlides(1)">❯</a>
 
         <div class="dot-container">
             <% for (j = 0; j < steps.length; j++) { %> 
                 <span class="dot"></span> 
                 <% } %> 
+        </div>
+
+        <div>
+            <h1 class="instructions">Say "next" to go to the next step and "previous" to go back a step.</p>
         </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
@@ -67,27 +72,27 @@
         showSlides(slideIndex);
 
         function plusSlides(n) {
-        showSlides(slideIndex += n);
+            showSlides(slideIndex += n);
         }
 
         function currentSlide(n) {
-        showSlides(slideIndex = n);
+            showSlides(slideIndex = n);
         }
 
         function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
         }
     </script>
     </body>

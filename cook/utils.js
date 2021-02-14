@@ -1,26 +1,6 @@
 const axios = require('axios');
-// const app = require('../../speech/web_microphone_websocket/server');
 const { API_KEY } = require('../config');
 
-/*
-let socket = new WebSocket("ws://localhost:4000");
-
-let englishModel = createModel(DEEPSPEECH_MODEL);
-
-let modelStream;
-let recordedChunks = 0;
-let silenceStart = null;
-let recordedAudioLength = 0;
-let endTimeout = null;
-let silenceBuffers = [];
-
-// creates a new stream - resets stream stats
-async function createStream() {
-    modelStream = englishModel.createStream();
-    recordedChunks = 0;
-    recordedAudioLength = 0;
-}
-*/
 
 
 // gets the steps only from a recipe
@@ -37,7 +17,6 @@ async function getSteps(id) {
         for (let item in info) {
             let itemSteps = info[item].steps
             let itemName = info[item].name;
-            let steps = [];
             if (itemName == '') {
                 allItemsSteps.push("Main recipe")
             } else {
